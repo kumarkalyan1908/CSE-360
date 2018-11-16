@@ -21,7 +21,12 @@ public class Processor {
 	StringBuffer sb;
 	private List<String> criticalPaths = new ArrayList<>();
 	private String pathsFinal;
+	private List<String> pathListFinal;
 	
+	public List<String> getPathlistFinal()
+	{
+		return pathListFinal;
+	}
 	public String getPathsFinal()
 	{
 		return pathsFinal;
@@ -88,6 +93,7 @@ public class Processor {
 		//List<String> listTemp =null;
 		criticalPaths = mapPath.get(sortList.get(sortList.size()-1));
 		StringBuffer sb1 = new StringBuffer();
+		pathListFinal =new ArrayList<>();
 		for(int i=sortList.size()-1;i>=0;i--)
 		{
 			strPath = mapPath.get(sortList.get(i));
@@ -96,7 +102,8 @@ public class Processor {
 			{
 				sb.append(strPath.get(j)).append("      "+"Duration   ").append(sortList.get(i)).append("\n");
 				sb1.append(strPath.get(j)).append("||").append(sortList.get(i)).append("\n").append("        ");
-				
+				pathListFinal.add(sb1.toString());
+				sb1.delete(0, sb1.length());
 			}
 		
 				

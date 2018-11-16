@@ -102,7 +102,7 @@ public class ExportFile extends JFrame {
 						Collections.sort(act);
 						
 						writer.println("Activities");
-						writer.println("\n");
+						writer.print("\n");
 						for(int i=0;i<act.size();i++)
 						{
 							writer.println(act.get(i)+"-->"+mapDur.get(act.get(i)));
@@ -112,7 +112,20 @@ public class ExportFile extends JFrame {
 						writer.println("\n");
 						writer.println("\n");
 						
-						writer.println(processor.getPathsFinal());
+						List<String> finalpaths = processor.getPathlistFinal();
+						
+						writer.println("Paths");
+						writer.println("\n");
+						writer.println("\n");
+						
+						for(int i=0;i<finalpaths.size();i++)
+						{
+							writer.println(finalpaths.get(i));
+							
+						}
+						
+						
+					//	writer.println(processor.getPathsFinal());
 						
 						writer.close();
 					} catch (FileNotFoundException | UnsupportedEncodingException e1) {
