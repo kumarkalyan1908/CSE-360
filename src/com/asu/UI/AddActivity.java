@@ -132,11 +132,11 @@ public class AddActivity extends JFrame {
 		contentPane.add(lblActivityname);
 		
 		lblDuration = new JLabel("Duration");
-		lblDuration.setBounds(164, 11, 46, 14);
+		lblDuration.setBounds(164, 11, 74, 14);
 		contentPane.add(lblDuration);
 		
 		lblDependencies = new JLabel("Dependencies");
-		lblDependencies.setBounds(286, 11, 71, 14);
+		lblDependencies.setBounds(271, 11, 124, 14);
 		contentPane.add(lblDependencies);
 	}
 }

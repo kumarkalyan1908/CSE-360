@@ -23,6 +23,7 @@ public class ApplicationWindow {
 
 	private JFrame frmNetworkdiagram;
 	private Dependency dependency;
+	private Processor processor ;
 
 	/**
 	 * Launch the application.
@@ -81,7 +82,7 @@ public class ApplicationWindow {
 				ErrorScreen error =new ErrorScreen("No Input to process");
 				error.setVisible(true);
 			}else {
-				Processor processor = new Processor(dependency);
+				 processor = new Processor(dependency);
 				try {
 					processor.process();
 				} catch (Exception e1) {
@@ -121,6 +122,25 @@ public class ApplicationWindow {
 				help.setVisible(true);
 			}
 		});
+		
+		JButton btnCriticalpathnodes = new JButton("Show Critical Path Nodes");
+		btnCriticalpathnodes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				CriticalPaths crits = new CriticalPaths(processor);
+				crits.setVisible(true);
+			}
+		});
+		panel.add(btnCriticalpathnodes);
+		
+		JButton btnExport = new JButton("Export");
+		btnExport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ExportFile export = new ExportFile(processor,dependency);
+				export.setVisible(true);
+			}
+		});
+		panel.add(btnExport);
 		panel.add(helpButton);
 		
 		JButton quitButton = new JButton("Quit");
